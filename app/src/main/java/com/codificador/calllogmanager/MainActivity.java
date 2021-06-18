@@ -1,6 +1,7 @@
 package com.codificador.calllogmanager;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
@@ -13,6 +14,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
 import com.codificador.calllogmanager.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment("Incoming", iFragment);
         adapter.addFragment("Missed", mFragment);
         binding.contentView.viewpager.setAdapter(adapter);
+    }
+
+    public void goContact(View view) {
+
+        Intent intent=new Intent(MainActivity.this,MainSimpleActivity.class);
+        startActivity(intent);
     }
 
     class CallLogViewPagerAdapter extends FragmentPagerAdapter {
